@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #errorMessage {
+            color: red;
+            display: none;
+        }
+        #websiteContent {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Access Code</h2>
+    <form id="loginForm">
+        <input type="text" id="accessCode" placeholder="Enter code" required>
+        <button type="button" onclick="validateAccess()">Login</button>
+    </form>
+
+    <p id="errorMessage">Incorrect code. Please try again.</p>
+
+    <div id="websiteContent">
+        <!-- Your website content goes here -->
+        <h2>Welcome to Your Website!</h2>
+        <p>This is the protected area of your website.</p>
+    </div>
+
+    <script>
+        function validateAccess() {
+            const enteredCode = document.getElementById('accessCode').value;
+            const correctCode = 'your_secret_code_here'; // Set your secret code here
+
+            if (enteredCode === correctCode) {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('errorMessage').style.display = 'none';
+                document.getElementById('websiteContent').style.display = 'block';
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
